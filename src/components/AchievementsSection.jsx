@@ -43,7 +43,7 @@ const achievements = [
   },
   {
     title: "Academic Excellence Award",
-    description: "University 3th Rank - Semester 4, 2024 (MSc IT - 8.91 GPA)",
+    description: "University 3th Rank - Semester 4, 2025 (MSc IT - 8.91 GPA)",
   },
 ];
 
