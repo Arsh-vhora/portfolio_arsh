@@ -41,6 +41,10 @@ const achievements = [
     title: "Academic Excellence Award",
     description: "University 8th Rank - Semester 3, 2024 (MSc IT - 8.08 GPA)",
   },
+  {
+    title: "Academic Excellence Award",
+    description: "University 3th Rank - Semester 4, 2024 (MSc IT - 8.91 GPA)",
+  },
 ];
 
 const AnimatedCounter = ({ value, label }) => {
