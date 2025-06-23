@@ -8,6 +8,7 @@ import ContactSection from './components/ContactSection';
 import SkillsSection from './components/SkillsSection';
 import EducationSection from './components/EducationSection';
 import AchievementsSection from './components/AchievementsSection';
+import ExperienceSection from './components/ExperienceSection';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <About/>
         <EducationSection/>
         <SkillsSection/>
+        <ExperienceSection/>
         <ProjectSection/>
         <AchievementsSection/>
         <ContactSection/>
