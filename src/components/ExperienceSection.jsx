@@ -10,7 +10,7 @@ const experienceData = [
     duration: "May 2025 – June 2025",
     description:
       "Worked on scalable web apps using React, Node.js, Express, and MySQL. Built reusable components and integrated REST APIs.",
-    certificateLink: "/certificates/fullstack_intership_certificate.pdf",
+    certificateLink: "/fullstack_internship_certificate.pdf",
   },
 ];
 
