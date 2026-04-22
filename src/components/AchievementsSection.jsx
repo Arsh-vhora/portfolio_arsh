@@ -1,63 +1,51 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Trophy, Star, ExternalLink } from "lucide-react";
-
-// const achievements = [
-//   {
-//     title: "Winner - CodeSprint Hackathon 2023",
-//     description: "Led a 4-member team to build an AI-based app. Won 1st place among 50+ teams.",
-//     image: "/certificates/hackathon_winner.jpg",
-//   },
-//   {
-//     title: "Certified React Developer",
-//     description: "Completed React certification from XYZ Academy.",
-//     image: "/certificates/react_cert.jpg",
-//   },
-//   {
-//     title: "Open Source Contributor",
-//     description: "Contributed to DevToolX with UI components.",
-//     image: "/certificates/opensource.jpg",
-//   },
-// ];
+import { Trophy, Download } from "lucide-react";
 
 const achievements = [
   {
     title: "Academic Excellence Award",
     description: "Institute 1st Rank - Semester 3, 2022 (BCA - 9.14 GPA)",
+    rank: "1st"
   },
   {
     title: "Academic Excellence Award",
     description: "University 6th Rank - Semester 3, 2022 (BCA - 9.14 GPA)",
+    rank: "6th"
   },
   {
     title: "Academic Excellence Award",
     description: "Institute 3rd Rank - Semester 5, 2023 (BCA - 8.50 GPA)",
+    rank: "3rd"
   },
   {
     title: "Academic Excellence Award",
     description: "University 3rd Rank - Semester 1, 2024 (MSc IT - 8.84 GPA)",
+    rank: "3rd"
   },
   {
     title: "Academic Excellence Award",
     description: "University 8th Rank - Semester 3, 2024 (MSc IT - 8.08 GPA)",
+    rank: "8th"
   },
   {
     title: "Academic Excellence Award",
     description: "University 3th Rank - Semester 4, 2025 (MSc IT - 8.91 GPA)",
+    rank: "3rd"
   },
 ];
 
-const AnimatedCounter = ({ value, label }) => {
+const AnimatedCounter = ({ value, label, color }) => {
   return (
     <motion.div
-      className="text-center"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      className="glass-card p-6 text-center"
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
     >
-      <h3 className="text-4xl font-bold text-blue-600 dark:text-blue-400">{value}+</h3>
-      <p className="text-sm text-gray-600 dark:text-gray-300">{label}</p>
+      <h3 className={`text-4xl font-black mb-2 ${color}`}>{value}+</h3>
+      <p className="text-sm font-medium text-foreground/50 uppercase tracking-wider">{label}</p>
     </motion.div>
   );
 };
@@ -66,77 +54,93 @@ const AchievementsSection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <section id="achievements" className="py-20 px-6 bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white">
-      <div className="max-w-5xl mx-auto">
-        <motion.h2
-          className="text-3xl font-bold text-center mb-12"
+    <section id="achievements" className="py-24 relative overflow-hidden">
+       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-indigo-500/5 blur-[120px] -z-10 rounded-full" />
+      
+      <div className="container mx-auto px-6">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          Achievements & Awards
-        </motion.h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Honors & <span className="text-gradient">Awards</span>
+          </h2>
+          <p className="text-foreground/50 max-w-2xl mx-auto">
+            Recognitions for academic excellence and professional contributions.
+          </p>
+        </motion.div>
 
         {/* Counters */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          <AnimatedCounter value={5} label="Projects Completed" />
-          {/* <AnimatedCounter value={3} label="Hackathons Won" /> */}
-          <AnimatedCounter value={5} label="Certificates" />
-          {/* <AnimatedCounter value={2} label="Open Source Contributions" /> */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-16 max-w-4xl mx-auto">
+          <AnimatedCounter value={6} label="University Ranks" color="text-indigo-500" />
+          <AnimatedCounter value={5} label="Projects" color="text-purple-500" />
+          <AnimatedCounter value={10} label="Scholarships" color="text-pink-500" />
         </div>
 
         {/* Achievement Cards */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {achievements.map((item, i) => (
             <motion.div
               key={i}
-              className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-md hover:shadow-lg transition-all"
+              className="glass-card p-6 group"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2 }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center gap-3 mb-3 text-blue-600 dark:text-blue-400">
-                <Trophy className="w-6 h-6" />
-                <h3 className="text-xl font-semibold">{item.title}</h3>
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-3 bg-yellow-500/10 text-yellow-500 rounded-2xl group-hover:rotate-12 transition-transform">
+                  <Trophy size={24} />
+                </div>
+                <span className="text-2xl font-black text-foreground/10 group-hover:text-yellow-500/20 transition-colors">
+                  {item.rank}
+                </span>
               </div>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">{item.description}</p>
-              {item.image && (
-                <button
-                  onClick={() => setSelectedImage(item.image)}
-                  className="inline-flex items-center text-blue-500 hover:underline text-sm"
-                >
-                  View Certificate <ExternalLink size={14} className="ml-1" />
-                </button>
-              )}
+              <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+              <p className="text-sm text-foreground/60 leading-relaxed">{item.description}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Image Modal */}
-        {selectedImage && (
-          <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center px-4" onClick={() => setSelectedImage(null)}>
-            <img
-              src={selectedImage}
-              alt="Certificate"
-              className="max-w-3xl w-full max-h-[90vh] object-contain rounded-lg shadow-2xl border"
-            />
-          </div>
-        )}
-
         {/* Resume download */}
-        <div className="text-center mt-16">
+        <motion.div 
+          className="text-center mt-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          viewport={{ once: true }}
+        >
           <a
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg transition"
+            className="btn-primary inline-flex items-center gap-3"
           >
+            <Download size={20} />
             Download Full Résumé
           </a>
-        </div>
+        </motion.div>
       </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 z-[100] glass flex items-center justify-center p-6" onClick={() => setSelectedImage(null)}>
+          <motion.div 
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="relative max-w-4xl w-full"
+          >
+            <img
+              src={selectedImage}
+              alt="Certificate"
+              className="w-full rounded-2xl shadow-2xl border-2 border-white/20"
+            />
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 };

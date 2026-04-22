@@ -6,36 +6,48 @@ import {
 const skillCategories = [
   {
     title: "Languages",
-    icon: <Code className="w-4 h-4 inline-block mr-2" />,
+    icon: <Code className="w-5 h-5" />,
     skills: ["C", "C++", "Core Java", "C#", "Python"],
+    color: "from-blue-500/20 to-indigo-500/20",
+    textColor: "text-blue-500"
   },
   {
     title: "Web Technologies",
-    icon: <Globe className="w-4 h-4 inline-block mr-2" />,
+    icon: <Globe className="w-5 h-5" />,
     skills: ["PHP", "ASP.NET", "HTML", "CSS", "JavaScript", "React JS"],
+    color: "from-purple-500/20 to-pink-500/20",
+    textColor: "text-purple-500"
   },
   {
     title: "Server-side Tech",
-    icon: <Server className="w-4 h-4 inline-block mr-2" />,
+    icon: <Server className="w-5 h-5" />,
     skills: ["NodeJS", "ExpressJS"],
+    color: "from-green-500/20 to-emerald-500/20",
+    textColor: "text-green-500"
   },
   {
     title: "Databases",
-    icon: <Database className="w-4 h-4 inline-block mr-2" />,
+    icon: <Database className="w-5 h-5" />,
     skills: ["Oracle 10g", "SQL Server 2008", "MySQL", "MongoDB"],
+    color: "from-orange-500/20 to-yellow-500/20",
+    textColor: "text-orange-500"
   },
   {
     title: "Tools & Others",
-    icon: <Wrench className="w-4 h-4 inline-block mr-2" />,
+    icon: <Wrench className="w-5 h-5" />,
     skills: ["Ms-Office", "Git"],
+    color: "from-cyan-500/20 to-blue-500/20",
+    textColor: "text-cyan-500"
   },
   {
     title: "Soft Skills",
-    icon: <Users className="w-4 h-4 inline-block mr-2" />,
+    icon: <Users className="w-5 h-5" />,
     skills: [
       "Collaboration", "Communication", "Problem-solving",
       "Time management", "Adaptability"
     ],
+    color: "from-red-500/20 to-orange-500/20",
+    textColor: "text-red-500"
   },
 ];
 
@@ -48,76 +60,76 @@ const strengths = [
 
 const SkillsSection = () => {
   return (
-    <section
-      id="skills"
-      className="py-20 bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white transition-colors"
-    >
-      <div className="max-w-6xl mx-auto px-4">
-        <motion.h2
-          className="text-3xl font-bold text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          Skills & Strengths
-        </motion.h2>
-
-        {/* Skills Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 text-start">
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={index}
-              className="rounded-xl shadow-md hover:shadow-lg transition p-4 h-full flex flex-col gap-3
-              bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-900
-              border border-gray-200 dark:border-gray-700"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.03 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-lg font-semibold mb-1 text-blue-600 dark:text-blue-400 flex items-center">
-                {category.icon}
-                {category.title}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, i) => (
-                  <motion.div
-                    key={i}
-                    whileHover={{
-                      scale: 1.1,
-                      boxShadow: "0 0 10px rgba(59,130,246,0.5)",
-                    }}
-                    className="px-3 py-1 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600
-                      rounded-md text-sm text-gray-800 dark:text-gray-100 transition"
-                  >
-                    {skill}
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-          ))}
-        </div>
-
-        {/* Strengths Section */}
+    <section id="skills" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-6">
         <motion.div
-          className="bg-gradient-to-br from-blue-100 to-white dark:from-blue-900 dark:to-gray-900 p-6 rounded-xl shadow text-center max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-300 mb-3 flex items-center justify-center">
-            <Star className="w-5 h-5 mr-2" />
-            Strengths
-          </h3>
-          <ul className="grid gap-1 text-gray-800 dark:text-gray-200 text-left sm:grid-cols-2">
-            {strengths.map((item, i) => (
-              <li key={i} className="list-disc list-inside">{item}</li>
-            ))}
-          </ul>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Technical <span className="text-gradient">Expertise</span>
+          </h2>
+          <p className="text-foreground/50 max-w-2xl mx-auto">
+            A comprehensive overview of my technical stack and professional strengths.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          {skillCategories.map((category, index) => (
+            <motion.div
+              key={index}
+              className="glass-card p-6 group hover:-translate-y-2 transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${category.color} ${category.textColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                {category.icon}
+              </div>
+              <h3 className="text-xl font-bold mb-4">{category.title}</h3>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1.5 glass rounded-xl text-sm font-medium hover:bg-white/10 transition-colors"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="glass-card p-8 md:p-12 relative overflow-hidden"
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-3xl -z-10" />
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="md:w-1/3 text-center md:text-left">
+              <div className="inline-flex p-3 bg-yellow-500/10 text-yellow-500 rounded-2xl mb-4">
+                <Star className="w-8 h-8 fill-current" />
+              </div>
+              <h3 className="text-2xl font-bold">Core Strengths</h3>
+              <p className="text-foreground/50 mt-2">What sets me apart</p>
+            </div>
+            <div className="md:w-2/3 grid sm:grid-cols-2 gap-4">
+              {strengths.map((strength, i) => (
+                <div key={i} className="flex items-center gap-3 p-4 glass rounded-2xl">
+                  <div className="w-2 h-2 rounded-full bg-indigo-500" />
+                  <span className="font-medium">{strength}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -125,158 +137,3 @@ const SkillsSection = () => {
 };
 
 export default SkillsSection;
-
-
-// import { motion } from "framer-motion";
-// import { Code, Globe, Database, Server, Wrench, Users, Star } from "lucide-react";
-
-// const skillCategories = [
-//   {
-//     title: "Languages",
-//     icon: <Code className="w-5 h-5 inline-block mr-2" />,
-//     skills: ["C", "C++", "Core Java", "C#", "Python"],
-//   },
-//   {
-//     title: "Web Technologies",
-//     icon: <Globe className="w-5 h-5 inline-block mr-2" />,
-//     skills: ["PHP", "ASP.NET", "HTML", "CSS", "JavaScript", "React JS"],
-//   },
-//   {
-//     title: "Server-side Tech",
-//     icon: <Server className="w-5 h-5 inline-block mr-2" />,
-//     skills: ["NodeJS", "ExpressJS"],
-//   },
-//   {
-//     title: "Databases",
-//     icon: <Database className="w-5 h-5 inline-block mr-2" />,
-//     skills: ["Oracle 10g", "SQL Server 2008", "MySQL", "MongoDB"],
-//   },
-//   {
-//     title: "Tools & Others",
-//     icon: <Wrench className="w-5 h-5 inline-block mr-2" />,
-//     skills: ["Ms-Office", "Git"],
-//   },
-//   {
-//     title: "Soft Skills",
-//     icon: <Users className="w-5 h-5 inline-block mr-2" />,
-//     skills: [
-//       "Collaboration", "Communication", "Problem-solving",
-//       "Time management", "Adaptability"
-//     ],
-//   },
-// ];
-
-// const strengths = [
-//   "Excellent communication skill",
-//   "Ability to grasp new skills quickly",
-//   "Hard-working",
-//   "Strong knowledge of core subjects"
-// ];
-
-// const SkillsSection = () => {
-//   return (
-//     <section
-//       id="skills"
-//       className="py-20 bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white transition-colors"
-//     >
-//       <div className="container mx-auto px-4">
-//         <motion.h2
-//           className="text-3xl font-bold text-center mb-12"
-//           initial={{ opacity: 0, y: 20 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.6 }}
-//           viewport={{ once: true }}
-//         >
-//           Skills & Strengths
-//         </motion.h2>
-
-//         {/* Skills Grid */}
-//         <div className="grid md:grid-cols-2 gap-8 mb-12">
-//           {skillCategories.map((category, index) => (
-//             <motion.div
-//               key={index}
-//               className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition"
-//               initial={{ opacity: 0, y: 30 }}
-//               whileInView={{ opacity: 1, y: 0 }}
-//               transition={{ delay: index * 0.1 }}
-//               viewport={{ once: true }}
-//             >
-//               <h3 className="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">
-//                 {category.icon}
-//                 {category.title}
-//               </h3>
-//               <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
-//                 {category.skills.map((skill, i) => (
-//                   <li key={i}>{skill}</li>
-//                 ))}
-//               </ul>
-//             </motion.div>
-//           ))}
-//         </div>
-
-//         {/* Strengths Section */}
-//         <motion.div
-//           className="bg-blue-50 dark:bg-blue-900 p-6 rounded-xl shadow text-center max-w-2xl mx-auto"
-//           initial={{ opacity: 0, y: 20 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.5 }}
-//           viewport={{ once: true }}
-//         >
-//           <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-300 mb-3 flex items-center justify-center">
-//             <Star className="w-5 h-5 mr-2" />
-//             Strengths
-//           </h3>
-//           <ul className="list-disc list-inside text-gray-800 dark:text-gray-200 text-left">
-//             {strengths.map((item, i) => (
-//               <li key={i}>{item}</li>
-//             ))}
-//           </ul>
-//         </motion.div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default SkillsSection;
-
-// import React from 'react'
-
-// const skills = [
-//   { name: "HTML", level: "Advanced" },
-//   { name: "CSS", level: "Advanced" },
-//   { name: "JavaScript", level: "Advanced" },
-//   { name: "React", level: "Advanced" },
-//   { name: "Tailwind CSS", level: "Intermediate" },
-//   { name: "Node.js", level: "Intermediate" },
-//   { name: "MongoDB", level: "Intermediate" },
-//   { name: "Git", level: "Intermediate" },
-// ];
-
-// const SkillsSection = () => {
-//   return (
-//     <section
-//       id="skills"
-//       className="py-20 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors"
-//       data-aos="zoom-in"
-//     >
-//       <div className="container mx-auto px-4">
-//         <h2 className="text-3xl font-bold text-center mb-10">Skills</h2>
-//         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-//           {skills.map((skill, index) => (
-//             <div
-//               key={index}
-//               className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center"
-//             >
-//               <h3 className="text-xl font-semibold mb-2">{skill.name}</h3>
-//               <p className="text-gray-600 dark:text-gray-400">{skill.level}</p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default SkillsSection;
-
-

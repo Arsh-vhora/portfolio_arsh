@@ -4,7 +4,16 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: "hsl(var(--primary))",
+        secondary: "hsl(var(--secondary))",
+        accent: "hsl(var(--accent))",
+      },
+    },
   },
   plugins: [],
 }

@@ -4,40 +4,64 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <section
-      id="about"
-      className="py-20 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors"
-      data-aos="fade-right"
-    >
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
-        {/* Text Section */}
-        <div className="md:w-1/2 text-center md:text-left">
-          <h2 className="text-4xl font-extrabold mb-4">About Me</h2>
-          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 max-w-xl">
-            I'm a full-stack developer with a passion for creating modern, user-friendly web applications.
-            I specialize in building high-performance, visually appealing interfaces. 
-            A self-motivated and hardworking seeking an opportunity to contribute to a dynamic organization. 
-            Eager to apply my skills, knowledge, and problem-solving abilities in a challenging environment 
-            while growing both professionally and personally.
-          </p>
-        </div>
+    <section id="about" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="glass-card p-8 md:p-12 flex flex-col md:flex-row items-center gap-12">
+          {/* Animated Image Section */}
+          <motion.div
+            className="w-full md:w-1/3 flex justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-3xl blur-2xl opacity-30 animate-pulse" />
+              <motion.img
+                src={myImage}
+                alt="Arsh Vhora"
+                className="relative w-64 h-64 md:w-72 md:h-72 object-cover rounded-2xl shadow-2xl border-2 border-white/20"
+                whileHover={{ scale: 1.05 }}
+              />
+            </div>
+          </motion.div>
 
-        {/* Animated Image Section */}
-        <motion.div
-          className="md:w-1/2 flex justify-center"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          viewport={{ once: true }}
-        >
-          <motion.img
-            src={myImage}
-            alt="Arsh Vhora"
-            className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-2xl shadow-2xl border-4 border-white dark:border-gray-800"
-            whileHover={{ scale: 1.05, rotate: 1 }}
-            transition={{ type: 'spring', stiffness: 300 }}
-          />
-        </motion.div>
+          {/* Text Section */}
+          <div className="w-full md:w-2/3 space-y-6">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                About <span className="text-gradient">Me</span>
+              </h2>
+              <div className="space-y-4 text-lg text-foreground/70 leading-relaxed font-light">
+                <p>
+                  I'm a full-stack developer with a passion for creating modern, user-friendly web applications.
+                  I specialize in building high-performance, visually appealing interfaces that solve real-world problems.
+                </p>
+                <p>
+                  A self-motivated and hardworking individual seeking an opportunity to contribute to a dynamic organization. 
+                  Eager to apply my skills, knowledge, and problem-solving abilities in a challenging environment 
+                  while growing both professionally and personally.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-6 pt-8">
+                <div>
+                  <h4 className="text-indigo-500 font-bold text-2xl">5+</h4>
+                  <p className="text-sm text-foreground/50">Projects Completed</p>
+                </div>
+                <div>
+                  <h4 className="text-purple-500 font-bold text-2xl">A+</h4>
+                  <p className="text-sm text-foreground/50">Learning Speed</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

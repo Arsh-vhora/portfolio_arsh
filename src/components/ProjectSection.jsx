@@ -1,27 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion';
-
-const ProjectSection = () => {
-//   const projects = [
-//   {
-//     title: "Job Portal",
-//     description:
-//       "A job portal built with ASP.NET (Front End), C# and SQL Server (Back End & DB). It connects job seekers and employers, supports job search, candidate filtering, messaging, job posting, and includes an admin dashboard to manage users and content.",
-//     link: "/projects/job-portal", // Replace with actual deployed or PDF link if available
-//   },
-//   {
-//     title: "Study Notion",
-//     description:
-//       "An ed-tech platform built with the MERN stack (ReactJS, NodeJS, ExpressJS, MongoDB). It allows instructors to publish courses and students to consume, review, and rate content. Features include seamless content delivery, user engagement, and global access.",
-//     link: "/projects/study-notion", // Replace with actual deployed link if available
-//   },
-//   {
-//     title: "PropertEase (Property Sale & Rental Website)",
-//     description:
-//       "A full-featured property platform built with ReactJS and NodeJS/ExpressJS + MongoDB. Supports user authentication, property listings, search/filtering, booking inquiries, admin dashboard, Google Maps integration, reviews, and secure payments.",
-//     link: "/projects/propertease", // Replace with actual deployed link if available
-//   },
-// ];
+import { ExternalLink, Github, Code2 } from 'lucide-react';
 
 const projects = [
   {
@@ -32,9 +11,9 @@ const projects = [
       "Job search and candidate filtering",
       "Job posting with detailed requirements",
       "Messaging between employers and candidates",
-      "Admin monitoring and moderation",
     ],
-    link: "#", // replace with real URL or leave as "#"
+    link: "#",
+    color: "from-blue-500 to-indigo-500"
   },
   {
     title: "Study Notion",
@@ -46,110 +25,144 @@ const projects = [
       "MERN stack implementation",
     ],
     link: "#",
+    color: "from-purple-500 to-pink-500"
   },
   {
     title: "PropertEase",
     techStack: ["ReactJS", "NodeJS", "ExpressJS", "MongoDB"],
     features: [
-      "User authentication for buyers, sellers, and renters",
-      "Property listings with images and pricing",
+      "User authentication and Property listings",
       "Search and filter by various criteria",
-      "Google Maps integration and secure payments",
-      "Admin dashboard and user reviews",
+      "Google Maps integration",
+      "Secure payments and Admin dashboard",
     ],
     link: "#",
+    color: "from-cyan-500 to-blue-500"
+  },
+  {
+    title: "HR Portal",
+    techStack: ["MERN Stack", "NodeJS", "ExpressJS", "MongoDB"],
+    features: [
+      "Full-featured HR management system",
+      "Secure login and role-based access",
+      "Employee data handling and workflows",
+      "Administrative dashboards",
+    ],
+    link: "#",
+    color: "from-orange-500 to-red-500"
+  },
+  {
+    title: "Company Portfolio",
+    techStack: ["React JS", "GSAP", "Framer Motion"],
+    features: [
+      "Modern, responsive company portfolio",
+      "Built with reusable UI components",
+      "Clean UI/UX with smooth animations",
+      "Cross-device compatibility",
+    ],
+    link: "#",
+    color: "from-emerald-500 to-teal-500"
+  },
+  {
+    title: "LMS System",
+    techStack: ["React.js", "Frontend Prototype"],
+    features: [
+      "Interactive frontend LMS prototype",
+      "Course listings and user dashboards",
+      "User-friendly navigation flows",
+      "Focus on UI/UX and responsiveness",
+    ],
+    link: "#",
+    color: "from-rose-500 to-pink-500"
   },
 ];
 
-
-
+const ProjectSection = () => {
   return (
-    <section
-        id="projects"
-        className="py-20 bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-100 transition-colors"
-        data-aos="fade-up"
+    <section id="projects" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-        <div className="container mx-auto px-4">
-            <motion.h2 className="text-3xl font-bold text-center mb-10" initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Featured <span className="text-gradient">Projects</span>
+          </h2>
+          <p className="text-foreground/50 max-w-2xl mx-auto">
+            A selection of my recent work, showcasing my skills in full-stack development and problem solving.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              className="glass-card group flex flex-col h-full overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              viewport={{ once: true }}
             >
-                Projects
-            </motion.h2>
-            <div className="grid md:grid-cols-3 gap-8">
-            {/* {projects.map((project, index) => (
-                <div
-                key={index}
-                className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition"
-                data-aos="zoom-in"
-                data-aos-delay={index * 100}
-                >
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
-                    {project.title}
-                </h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
-                    {project.description}
-                </p>
-                <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 dark:text-blue-400 hover:underline"
-                >
-                    View Project →
-                </a>
+              <div className={`h-48 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                   <div className="flex gap-4">
+                      <a href={project.link} className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-black transition-all">
+                        <ExternalLink size={20} />
+                      </a>
+                      <a href="#" className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-black transition-all">
+                        <Github size={20} />
+                      </a>
+                   </div>
                 </div>
-            ))} */}
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow hover:shadow-lg transition"
-                data-aos="zoom-in"
-                data-aos-delay={index * 100}
-              >
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+                <div className="absolute bottom-4 left-4">
+                   <div className="p-2 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 text-white">
+                      <Code2 size={24} />
+                   </div>
+                </div>
+              </div>
+
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-indigo-500 transition-colors">
                   {project.title}
                 </h3>
-
-                {/* Tech Stack Badges */}
-                <div className="flex flex-wrap gap-2 mb-3 items-center justify-center">
+                
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.techStack.map((tech, i) => (
                     <span
                       key={i}
-                      className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 text-xs px-2 py-1 rounded-full"
+                      className="px-2 py-1 glass rounded-lg text-[10px] font-bold uppercase tracking-wider text-indigo-500"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Feature List */}
-                <div className='flex flex-col text-left justify-center items-center'>
-                  <ul className="text-sm text-gray-700 dark:text-gray-300 mb-4">
-                    {project.features.map((feature, i) => (
-                      <li key={i}>{"→ " + feature}</li>
-                    ))}
-                  </ul>
-                </div>
-                
+                <ul className="space-y-2 mb-6 flex-grow">
+                  {project.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-foreground/70">
+                      <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
 
                 <a
                   href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium"
+                  className="w-full btn-secondary text-center py-2 text-sm"
                 >
-                  View Project →
+                  View Case Study
                 </a>
               </div>
-            ))}
-
-            </div>
+            </motion.div>
+          ))}
         </div>
+      </div>
     </section>
-
   );
 }
 
-export default ProjectSection
+export default ProjectSection;
