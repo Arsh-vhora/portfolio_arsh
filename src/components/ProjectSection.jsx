@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Code2 } from 'lucide-react';
+import { ExternalLink, Code2 } from 'lucide-react';
+// import {GitHub} from 'lucide-react';
 import jobPortalImg from '../assets/images/jobportal.avif';
 import studyNotionImg from '../assets/images/study_notion.png';
 import propertEaseImg from '../assets/images/propert_ease.png';
