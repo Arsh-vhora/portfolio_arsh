@@ -20,7 +20,7 @@ const About = () => {
               <motion.img
                 src={myImage}
                 alt="Arsh Vhora"
-                className="relative w-64 h-64 md:w-72 md:h-72 object-cover rounded-2xl shadow-2xl border-2 border-white/20"
+                className="relative w-64 h-64 md:w-72 md:h-72 object-cover object-top rounded-2xl shadow-2xl border-2 border-white/20"
                 whileHover={{ scale: 1.05 }}
               />
             </div>
@@ -43,8 +43,8 @@ const About = () => {
                   I specialize in building high-performance, visually appealing interfaces that solve real-world problems.
                 </p>
                 <p>
-                  A self-motivated and hardworking individual seeking an opportunity to contribute to a dynamic organization. 
-                  Eager to apply my skills, knowledge, and problem-solving abilities in a challenging environment 
+                  A self-motivated and hardworking individual seeking an opportunity to contribute to a dynamic organization.
+                  Eager to apply my skills, knowledge, and problem-solving abilities in a challenging environment
                   while growing both professionally and personally.
                 </p>
               </div>

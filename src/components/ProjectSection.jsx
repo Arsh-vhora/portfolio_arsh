@@ -1,6 +1,12 @@
 import React from 'react'
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Code2 } from 'lucide-react';
+import jobPortalImg from '../assets/images/jobportal.avif';
+import studyNotionImg from '../assets/images/study_notion.png';
+import propertEaseImg from '../assets/images/propert_ease.png';
+import hrPortalImg from '../assets/images/hrportal.png';
+import companyPortfolioImg from '../assets/images/portfolio.png';
+import lmsSystemImg from '../assets/images/L_D_Platform.png';
 
 const projects = [
   {
@@ -13,7 +19,8 @@ const projects = [
       "Messaging between employers and candidates",
     ],
     link: "#",
-    color: "from-blue-500 to-indigo-500"
+    color: "from-blue-500 to-indigo-500",
+    image: jobPortalImg
   },
   {
     title: "Study Notion",
@@ -25,7 +32,8 @@ const projects = [
       "MERN stack implementation",
     ],
     link: "#",
-    color: "from-purple-500 to-pink-500"
+    color: "from-purple-500 to-pink-500",
+    image: studyNotionImg
   },
   {
     title: "PropertEase",
@@ -37,7 +45,8 @@ const projects = [
       "Secure payments and Admin dashboard",
     ],
     link: "#",
-    color: "from-cyan-500 to-blue-500"
+    color: "from-cyan-500 to-blue-500",
+    image: propertEaseImg
   },
   {
     title: "HR Portal",
@@ -49,7 +58,8 @@ const projects = [
       "Administrative dashboards",
     ],
     link: "#",
-    color: "from-orange-500 to-red-500"
+    color: "from-orange-500 to-red-500",
+    image: hrPortalImg
   },
   {
     title: "Company Portfolio",
@@ -61,7 +71,8 @@ const projects = [
       "Cross-device compatibility",
     ],
     link: "#",
-    color: "from-emerald-500 to-teal-500"
+    color: "from-emerald-500 to-teal-500",
+    image: companyPortfolioImg
   },
   {
     title: "LMS System",
@@ -73,7 +84,8 @@ const projects = [
       "Focus on UI/UX and responsiveness",
     ],
     link: "#",
-    color: "from-rose-500 to-pink-500"
+    color: "from-rose-500 to-pink-500",
+    image: lmsSystemImg
   },
 ];
 
@@ -107,21 +119,28 @@ const ProjectSection = () => {
               viewport={{ once: true }}
             >
               <div className={`h-48 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                   <div className="flex gap-4">
-                      <a href={project.link} className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-black transition-all">
-                        <ExternalLink size={20} />
-                      </a>
-                      <a href="#" className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-black transition-all">
-                        <Github size={20} />
-                      </a>
-                   </div>
+                {project.image && (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                  />
+                )}
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                  <div className="flex gap-4">
+                    <a href={project.link} className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-black transition-all">
+                      <ExternalLink size={20} />
+                    </a>
+                    {/* <a href="#" className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-black transition-all">
+                      <Github size={20} />
+                    </a> */}
+                  </div>
                 </div>
-                <div className="absolute bottom-4 left-4">
-                   <div className="p-2 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 text-white">
-                      <Code2 size={24} />
-                   </div>
+                <div className="absolute bottom-4 left-4 z-10">
+                  <div className="p-2 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 text-white">
+                    <Code2 size={24} />
+                  </div>
                 </div>
               </div>
 
@@ -129,7 +148,7 @@ const ProjectSection = () => {
                 <h3 className="text-2xl font-bold mb-3 group-hover:text-indigo-500 transition-colors">
                   {project.title}
                 </h3>
-                
+
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.techStack.map((tech, i) => (
                     <span
@@ -150,12 +169,12 @@ const ProjectSection = () => {
                   ))}
                 </ul>
 
-                <a
+                {/*<a
                   href={project.link}
                   className="w-full btn-secondary text-center py-2 text-sm"
                 >
                   View Case Study
-                </a>
+                </a>*/}
               </div>
             </motion.div>
           ))}
